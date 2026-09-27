@@ -29,6 +29,13 @@ target_link_libraries(example_goM8010_6_motor ${EXTRA_LIBS})
 add_executable(changeID example/changeID.cpp)
 target_link_libraries(changeID ${EXTRA_LIBS})
 
+add_executable(example_goM8010_safe_test
+               example/example_goM8010_safe_test.cpp)
+target_include_directories(example_goM8010_safe_test PRIVATE
+                           ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(example_goM8010_safe_test
+                      ${EXTRA_LIBS})
+
 set(LIBRARY_OUTPUT_PATH "../lib")
 add_subdirectory(thirdparty/pybind11)
 pybind11_add_module(unitree_actuator_sdk thirdparty/python_wrapper/wrapper.cpp)
